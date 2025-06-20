@@ -1,0 +1,298 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #8e1921;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logo-container {
+    position: relative;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://www.soa.ac.in/assets/images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Main Content Styles */
+main {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h3 {
+    font-size: 20px;
+    color: #8e1921;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.program-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.program-details p {
+    margin-bottom: 10px;
+}
+
+/* Tab Navigation Styles */
+.year-tabs, .semester-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.year-tab, .semester-tab {
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.year-tab:hover, .semester-tab:hover {
+    background-color: #e0e0e0;
+}
+
+.year-tab.active, .semester-tab.active {
+    background-color: #8e1921;
+    color: white;
+}
+
+/* Fee Content Styles */
+.semester-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.semester-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fee-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 15px;
+}
+
+.fee-item {
+    flex: 1;
+    min-width: 250px;
+}
+
+.fee-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8e1921;
+    margin-top: 10px;
+}
+
+.payment-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+.payment-details h4, .fee-item h4 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.payment-details p {
+    margin-bottom: 8px;
+}
+
+.installment {
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Table Styles */
+.additional-fees-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f5f5f5;
+    color: #555;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Payment Guidelines Styles */
+.guidelines-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.payment-methods, .bank-details, .important-note {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.guidelines-content h4 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.guidelines-content ul {
+    list-style-position: inside;
+    margin-left: 10px;
+}
+
+.guidelines-content li {
+    margin-bottom: 8px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 0 0 8px 8px;
+    color: #555;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: #8e1921;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .fee-card {
+        flex-direction: column;
+    }
+    
+    .year-tabs, .semester-tabs {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .year-tab, .semester-tab {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+    
+    .guidelines-content {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 20px;
+    }
+    
+    header h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    main, header {
+        padding: 15px;
+    }
+    
+    .fee-amount {
+        font-size: 20px;
+    }
+}

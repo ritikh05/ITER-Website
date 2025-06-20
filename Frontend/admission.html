@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Details</title>
+    <link rel="stylesheet" href="admission.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Admission Application</h1>
+                <p>Fill in the form below to apply for admission</p>
+            </div>
+            <div class="home-button">
+                <a href="dashboard.html">Back to Dashboard</a>
+            </div>
+        </header>
+
+        <div class="form-container">
+            <form id="admissionForm">
+                <div class="form-section personal-info">
+                    <h2>Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="studentName">Full Name*</label>
+                        <input type="text" id="studentName" name="studentName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth*</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">Gender*</label>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address*</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section academic-info">
+                    <h2>Academic Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="registrationNumber">Registration Number*</label>
+                        <input type="text" id="registrationNumber" name="registrationNumber" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tenthMarks">10th Marks (%)*</label>
+                            <input type="number" id="tenthMarks" name="tenthMarks" min="0" max="100" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="twelfthMarks">12th Marks (%)*</label>
+                            <input type="number" id="twelfthMarks" name="twelfthMarks" min="0" max="100" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jeeRank">JEE Rank (Optional)</label>
+                            <input type="number" id="jeeRank" name="jeeRank" min="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferredStream">Preferred Stream*</label>
+                            <select id="preferredStream" name="preferredStream" required>
+                                <option value="" disabled selected>Select Stream</option>
+                                <option value="computer_science">Computer Science & Engineering</option>
+                                <option value="electronics">Electronics & Communication</option>
+                                <option value="electrical">Electrical Engineering</option>
+                                <option value="mechanical">Mechanical Engineering</option>
+                                <option value="civil">Civil Engineering</option>
+                                <option value="chemical">Chemical Engineering</option>
+                                <option value="biotechnology">Biotechnology</option>
+                                <option value="aerospace">Aerospace Engineering</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section documents">
+                    <h2>Document Upload</h2>
+                    
+                    <div class="form-group">
+                        <label for="studentPhoto">Student Photo*</label>
+                        <div class="file-upload">
+                            <input type="file" id="studentPhoto" name="studentPhoto" accept="image/*" required>
+                            <div class="preview" id="photoPreview"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tenthMarksheet">10th Marksheet*</label>
+                            <div class="file-upload">
+                                <input type="file" id="tenthMarksheet" name="tenthMarksheet" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <small>PDF or Image format (Max 2MB)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="twelfthMarksheet">12th Marksheet*</label>
+                            <div class="file-upload">
+                                <input type="file" id="twelfthMarksheet" name="twelfthMarksheet" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <small>PDF or Image format (Max 2MB)</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalDocuments">Additional Documents (Optional)</label>
+                        <div class="file-upload">
+                            <input type="file" id="additionalDocuments" name="additionalDocuments" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                            <small>You can select multiple files (Max 5MB total)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section terms">
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="termsAgreement" name="termsAgreement" required>
+                        <label for="termsAgreement">I hereby declare that all the information provided is correct and complete to the best of my knowledge.</label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="resetForm">Reset</button>
+                    <button type="submit" class="btn-primary">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Application Submitted!</h2>
+            <p>Your admission application has been successfully submitted.</p>
+            <p>Your application ID: <span id="applicationId"></span></p>
+            <p>We will review your application and contact you soon.</p>
+            <button class="btn-primary" id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <script src="admission.js"></script>
+</body>
+</html>

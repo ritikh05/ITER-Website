@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <i class="fas fa-user-graduate header-icon"></i>
+                <h1>Student Information</h1>
+            </div>
+        </header>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="personal">Personal Information</button>
+                <button class="tab-btn" data-tab="contact">Contact Details</button>
+                <button class="tab-btn" data-tab="qualifications">Qualifications</button>
+            </div>
+
+            <!-- Personal Information Tab -->
+            <div class="tab-content active" id="personal">
+                <div class="student-profile">
+                    <div class="profile-photo">
+                        <div class="photo-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-row">
+                            <div class="detail-group">
+                                <label>Enrollment No.</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="detail-group">
+                                <label>Student Name</label>
+                                <input type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-group">
+                                <label>Institute Code</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="detail-group">
+                                <label>Program</label>
+                                <input type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-group">
+                                <label>Branch</label>
+                                <input type="text" readonly>
+                            </div>
+                            <div class="detail-group">
+                                <label>Semester</label>
+                                <input type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h3>Additional Information</h3>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Date of Birth</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Gender</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Nationality</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Blood Group</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Category</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Admission Year</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Father's Name</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Mother's Name</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Tab -->
+            <div class="tab-content" id="contact">
+                <div class="details-section">
+                    <h3>Student Contact Details</h3>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Cell / Mobile</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Telephone No</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Email ID</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h3>Parent Contact Details</h3>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Cell / Mobile</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Telephone No</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Email</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h3>Correspondence Address</h3>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Address Line 1</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Address Line 2</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>City</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Postal Code</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>State</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-section">
+                    <h3>Permanent Address</h3>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>Address Line 1</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Address Line 2</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-group">
+                            <label>City</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>Postal Code</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="detail-group">
+                            <label>State</label>
+                            <input type="text" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qualifications Tab -->
+            <div class="tab-content" id="qualifications">
+                <div class="details-section">
+                    <h3>Academic Qualifications</h3>
+                    <div class="table-container">
+                        <table class="qualifications-table">
+                            <thead>
+                                <tr>
+                                    <th>Qualification</th>
+                                    <th>Board/University</th>
+                                    <th>Year of Passing</th>
+                                    <th>Percentage</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="action-btn" id="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+            <button class="action-btn primary" id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script src="student.js"></script>
+</body>
+</html>

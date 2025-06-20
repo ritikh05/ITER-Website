@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Fee Payment Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-university"></i>
+                    <span>College Fee Portal</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-name">Student Name</div>
+                        <div class="user-id">ID: STU20250511</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Semester Fee Details</h2>
+                <div class="card-actions">
+                    <button class="btn btn-outline" onclick="toggleSelectAll()">
+                        <i class="fas fa-check-double"></i> Select All
+                    </button>
+                    <button class="btn btn-primary" id="payAllBtn" onclick="proceedToPayment()">
+                        <i class="fas fa-credit-card"></i> Pay Selected
+                    </button>
+                </div>
+            </div>
+            
+            <div class="fee-table-wrapper">
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">
+                                <input type="checkbox" id="selectAll" onchange="selectAllSemesters()">
+                            </th>
+                            <th width="20%">Semester</th>
+                            <th width="30%">Fee Details</th>
+                            <th width="15%">Due Date</th>
+                            <th width="15%">Amount</th>
+                            <th width="15%">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feeTableBody">
+                        <!-- Fee data will be loaded dynamically via JavaScript -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="total-label">Total Selected Amount</td>
+                            <td colspan="2" class="total-amount" id="totalAmount">₹0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Complete Payment</h2>
+                    <span class="close-modal" onclick="closeModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="payment-summary">
+                        <h3>Payment Summary</h3>
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <div class="summary-label">Total Semesters:</div>
+                                <div class="summary-value" id="totalSemesters">0</div>
+                            </div>
+                            <div class="summary-row">
+                                <div class="summary-label">Total Amount:</div>
+                                <div class="summary-value" id="modalTotalAmount">₹0.00</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3>Select Payment Method</h3>
+                        <div class="payment-options">
+                            <div class="payment-option active" data-method="card">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </div>
+                            <div class="payment-option" data-method="upi">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI</span>
+                            </div>
+                            <div class="payment-option" data-method="net-banking">
+                                <i class="fas fa-university"></i>
+                                <span>Net Banking</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-form">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expDate">Expiry Date</label>
+                                <input type="text" id="expDate" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="password" id="cvv" placeholder="***" maxlength="3">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Name on Card</label>
+                            <input type="text" id="cardName" placeholder="John Doe">
+                        </div>
+                    </div>
+                    
+                    <div class="payment-actions">
+                        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                        <button class="btn btn-primary" onclick="processPayment()">
+                            <i class="fas fa-lock"></i> Pay Securely
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipt Modal -->
+        <div id="receiptModal" class="modal">
+            <div class="modal-content receipt-modal-content">
+                <div class="modal-header">
+                    <h2>Payment Successful</h2>
+                    <span class="close-modal" onclick="closeReceiptModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="payment-success">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Payment Completed Successfully!</h3>
+                        <p>Your transaction has been processed successfully.</p>
+                    </div>
+                    
+                    <div id="receipt" class="receipt">
+                        <div class="receipt-header">
+                            <div class="college-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="college-info">
+                                <h2>College Fee Receipt</h2>
+                                <p>Academic Year 2024-2025</p>
+                            </div>
+                        </div>
+                        
+                        <div class="receipt-details">
+                            <div class="receipt-row">
+                                <div class="receipt-label">Receipt No:</div>
+                                <div class="receipt-value" id="receiptNumber">FEE20250511001</div>
+                            </div>
+                            <div class="receipt-row">
+                                <div class="receipt-label">Date:</div>
+                                <div class="receipt-value" id="receiptDate">May 11, 2025</div>
+                            </div>
+                            <div class="receipt-row">
+                                <div class="receipt-label">Student Name:</div>
+                                <div class="receipt-value">Student Name</div>
+                            </div>
+                            <div class="receipt-row">
+                                <div class="receipt-label">Student ID:</div>
+                                <div class="receipt-value">STU20250511</div>
+                            </div>
+                            <div class="receipt-row">
+                                <div class="receipt-label">Transaction ID:</div>
+                                <div class="receipt-value" id="transactionId">TXN12345678</div>
+                            </div>
+                            <div class="receipt-row">
+                                <div class="receipt-label">Payment Mode:</div>
+                                <div class="receipt-value" id="paymentMode">Credit Card</div>
+                            </div>
+                        </div>
+                        
+                        <div class="receipt-fees">
+                            <table class="receipt-table">
+                                <thead>
+                                    <tr>
+                                        <th>Semester</th>
+                                        <th>Fee Type</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="receiptTableBody">
+                                    <!-- Receipt details will be populated here -->
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2" class="receipt-total-label">Total Amount Paid</td>
+                                        <td class="receipt-total-amount" id="receiptTotalAmount">₹0.00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        
+                        <div class="receipt-footer">
+                            <p>This is a computer-generated receipt and does not require a signature.</p>
+                            <div class="receipt-stamp">PAID</div>
+                        </div>
+                    </div>
+                    
+                    <div class="receipt-actions">
+                        <button class="btn btn-secondary" onclick="downloadReceipt()">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button class="btn btn-primary" onclick="closeReceiptModal()">
+                            <i class="fas fa-check"></i> Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 College Fee Portal. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="#"><i class="fas fa-phone"></i> Contact</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Processing payment...</p>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
