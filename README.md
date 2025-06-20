@@ -1,68 +1,77 @@
-# 🏫 ITER Website – Smart Institute Landing Page
+# 🏫 ITER Website – Smart University Portal with Dashboard & Payment Integration
 
 ## 📘 Description
-This project is a modern, responsive replica of the **Institute of Technical Education & Research (ITER)** website. It blends traditional academic structure with interactive web design — including a smart activity suggestion feature based on real-time weather. Built with simplicity and elegance in mind, this site is ideal for showcasing campus features, departments, and announcements.
+**ITER Website** is a responsive and modular web portal designed for the Institute of Technical Education & Research (ITER). It includes student dashboards, fee management, admission interface, and payment simulation, all integrated with a Node.js backend for dynamic student data handling.
 
 ---
 
 ## 🚀 Features
 
-- 🏠 Clean and structured landing page
-- 🏫 About ITER section with highlights
-- 🧭 Dynamic activity suggestion based on weather
-- 🧪 Department-wise layout or card display
-- 📅 Event & Noticeboard section (static/demo)
-- 🌐 Responsive design with clean navigation
-- 🎨 FontAwesome icons and subtle animations for UX
+- 🏠 Landing page with institute highlights
+- 👨‍🎓 Student dashboard with personal details
+- 📄 Online admission portal
+- 💳 Fee payment simulation
+- 💼 Admin/student data interface
+- 🌐 Clean UI across all pages using custom styles
+- 🔄 Dynamic data exchange using Node.js backend
 
 ---
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: HTML, CSS, JavaScript  
-- **APIs**: Weather API (for dynamic activity suggestion)  
-- **UX**: FontAwesome icons, custom styling  
-- **Hosting**: *(Add Render/Netlify URL if deployed)*
+- **Backend**: Node.js, Express.js  
+- **Database**: *(Local file or in-memory via JS objects — assumed)*  
+- **Other Tools**: FontAwesome, custom icons
 
 ---
 
 ## 📦 Setup Instructions
 
 ### 🔧 Prerequisites
-- A modern browser (Chrome, Firefox, Edge, etc.)
+- Node.js installed on your machine
+- Modern web browser (Chrome, Firefox)
 
-### ▶️ Run the Website Locally
+### ▶️ Run the Application
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/your-username/iter-website.git
 
-# 2. Open the project folder
+# 2. Navigate to the backend folder
+cd iter-website/backend
 
-# 3. Open index.html in your browser
+# 3. Install dependencies (if any)
+npm install
+
+# 4. Start the server
+node server.js
+
+# 5. Open index.html from frontend in your browser
 ```
 
-> No backend is required. The site runs purely on frontend technologies.
+> Backend handles student data (e.g., students.js), while frontend includes dashboards, fees, admission, and payment screens.
 
 ---
 
 ## 💡 Future Enhancements
 
-- Add student portal & login system
-- Dynamic event management using JSON or backend
-- Full campus gallery section
-- Admin panel to update notices and weather-based logic
+- Real-time fee payment gateway integration
+- MongoDB or Firebase database connection
+- Admin login panel for CRUD operations
+- Notification system for student updates
+- Academic result integration
 
 ---
 
 ## 📄 License
 
 This project is licensed under the **MIT License**.  
-Feel free to use and build upon it.
+You’re free to use, enhance, and share it.
 
 ---
 
 ## 👤 Author
 
 **Ritikh**  
-*Final-year CSE Student | Frontend Developer | UI Designer*
+*Final-year CSE Student | Full Stack Developer | UI/UX Builder*
